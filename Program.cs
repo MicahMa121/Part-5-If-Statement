@@ -15,22 +15,57 @@ namespace Part_5_If_Statement
                     Console.WriteLine("1. Compass Bearing 2. Parking Garage Cost 3. Hurricane");
                 }
                 while (!int.TryParse(Console.ReadLine(), out option));
-                if (option == 1)
+                switch (option)
                 {
-                    Compass();
+                    case 1:
+                        Compass();
+                        break;
+                    case 2:
+                        Parking();
+                        break;
+                    case 3:
+                        Hurricane();
+                        break;
                 }
                 Console.WriteLine("(Enter \"End\" to quit)");
             }
             while (Console.ReadLine() != "End");
             Environment.Exit(0);
         }
+        public static void Hurricane()
+        {
+            Console.WriteLine("Please pick a hurricane category!(Enter an integer)");
+            int category;
+            if (int.TryParse(Console.ReadLine(), out category))
+            {
+                switch (category)
+                {
+                    case 1:
+                        Console.WriteLine("Hurricane Category 1  \t64-82\t74-95\t119-153\t"
+                }
+            }
+            else { return; }
+        }
         public static void Parking()
         {
-            Console.WriteLine("Please Enter the time (in minutes) you have been parking!(Do not include the unit)");
+            Console.WriteLine("Please enter the time (in minutes) you have been parking!(Do not include the unit)");
             int minute;
             if (int.TryParse(Console.ReadLine(), out minute))
             {
-
+                if (minute > 0 && minute <= 60)
+                {
+                    Console.WriteLine("Your parking fee is $4.00!");
+                }
+                else if (minute>60)
+                {
+                    int fee = 4;
+                    fee += Convert.ToInt16(2 * (Math.Ceiling((double)minute / 60)-1));
+                    if (fee > 20) 
+                    {
+                        fee = 20;
+                    }
+                    Console.WriteLine("Your parking fee is "+fee.ToString("$0.00")+"!");
+                }
             }
             else 
             { 
