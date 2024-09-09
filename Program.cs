@@ -34,14 +34,27 @@ namespace Part_5_If_Statement
         }
         public static void Hurricane()
         {
-            Console.WriteLine("Please pick a hurricane category!(Enter an integer)");
+            Console.WriteLine("Please pick a hurricane category!(Enter an integer from 1-5)");
             int category;
             if (int.TryParse(Console.ReadLine(), out category))
             {
                 switch (category)
                 {
                     case 1:
-                        Console.WriteLine("Hurricane Category 1  \t64-82\t74-95\t119-153\t"
+                        Console.WriteLine("Hurricane Category 1:\t74-95mph\t64-82kt\t119-153km\\h\t");
+                        break;
+                    case 2:
+                        Console.WriteLine("Hurricane Category 2:\t96-110mph\t83-95kt\t154-177km\\h");
+                        break;
+                    case 3:
+                        Console.WriteLine("Hurricane Category 3:\t111-129mph\t96-112kt\t178-208km\\h");
+                        break;
+                    case 4:
+                        Console.WriteLine("Hurricane Category 4:\t130-156mph\t113-136kt\t209-251km\\h");
+                        break;
+                    case 5:
+                        Console.WriteLine("Hurricane Category 5:\t>157mph\t>137kt\t>252km\\h");
+                        break;
                 }
             }
             else { return; }
